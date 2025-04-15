@@ -16,16 +16,18 @@ async function runTests() {
       
       if (result) {
         console.log(`✅ PASSED: ${test.name}`);
+        console.log(` Expected: ${JSON.stringify(test.expected)}`);
+        console.log(` Received: ${JSON.stringify(response.data)}`);
         passed++;
       } else {
         console.log(`❌ FAILED: ${test.name}`);
-        console.log(`  Expected: ${JSON.stringify(test.expected)}`);
-        console.log(`  Received: ${JSON.stringify(response.data)}`);
+        console.log(` Expected: ${JSON.stringify(test.expected)}`);
+        console.log(` Received: ${JSON.stringify(response.data)}`);
         failed++;
       }
     } catch (error) {
       console.log(`❌ ERROR: ${test.name}`);
-      console.log(error.message);
+      console.log(error);
       failed++;
     }
     console.log('---');

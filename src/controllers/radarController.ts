@@ -18,9 +18,15 @@ export const processRadarData = async (req: Request, res: Response): Promise<voi
     
     // Determine target
     let targetCoordinates: Coordinates | null = null;
-    if (processedPoints.length > 0) {
-      targetCoordinates = processedPoints[0].coordinates;
-    }
+if (processedPoints.length > 0) {
+  // Create coordinates object with explicit property order
+  targetCoordinates = {
+    x: processedPoints[0].coordinates.x,
+    y: processedPoints[0].coordinates.y
+  };
+}
+
+    
 
     // Store audit record
     const audit = new Audit({
@@ -31,7 +37,14 @@ export const processRadarData = async (req: Request, res: Response): Promise<voi
 
     // Response
     if (targetCoordinates) {
-      res.status(200).json(targetCoordinates);
+      // Force specific property order in JSON response
+      const orderedResponse = JSON.stringify({
+        x: targetCoordinates.x,
+        y: targetCoordinates.y
+      });
+      
+      // Send pre-serialized JSON with correct content type
+      res.status(200).type('json').send(orderedResponse);
     } else {
       res.status(404).json({ error: 'No valid targets found' });
     }

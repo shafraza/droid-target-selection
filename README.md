@@ -75,9 +75,34 @@ Retrieve details of a specific calculation.
 ### DELETE /audit/:id
 Delete a specific calculation from the audit log.
 
+## Utility Scripts
+
+The project includes three utility scripts for interacting with the audit system:
+
+1. List all audit records:
+   ```
+   ./scripts/audit-list.sh
+   ```
+
+2. Get details of a specific audit record:
+   ```
+   ./scripts/audit-detail.sh <audit_id>
+   ```
+
+3. Delete a specific audit record:
+   ```
+   ./scripts/audit-delete.sh <audit_id>
+   ```
+
+Make sure to make these scripts executable first with:
+
+```
+chmod +x ./scripts/audit-*.sh
+```
+
 ## Testing
 
 Run the provided test scripts:
 ```
-node tests/test-runner.js
+./tests.sh
 ```
