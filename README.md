@@ -7,6 +7,8 @@ This module handles target selection for YVH combat droids based on various prot
 - Node.js (v14+)
 - MongoDB
 - npm or yarn
+- **MongoDB must be installed and running locally** at `mongodb://localhost:27017`  
+  (You can change the URI in the `.env` file)
 
 ## Installation
 
@@ -25,8 +27,10 @@ This module handles target selection for YVH combat droids based on various prot
    - Create a `.env` file in the root directory
    - Add the following variables:
      ```
-     PORT=3000
-     MONGODB_URI=mongodb://localhost:27017/droid-target-selection
+      RADAR_API_PROTOCOL=http
+      RADAR_API_HOST=localhost
+      RADAR_API_PORT=3000
+      MONGODB_URI=mongodb://localhost:27017/droid-target-selection
      ```
 
 4. Build the project:
