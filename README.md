@@ -66,17 +66,32 @@ Processes radar scan data and returns optimal target coordinates based on specif
 
 ```json
 {
-  "protocols": ["avoid-mech", "prioritize-soldiers"],
-  "scan": [
-    {
-      "coordinates": {"x": 0, "y": 40},
-      "enemies": {"type": "soldier", "number": 10}
-    },
-    {
-      "coordinates": {"x": 12, "y": 0},
-      "enemies": {"type": "mech", "number": 1}
-    }
-  ]
+    "protocols": [
+        "avoid-mech"
+    ],
+    "scan": [
+        {
+            "coordinates": {
+                "x": 0,
+                "y": 40
+            },
+            "enemies": {
+                "type": "soldier",
+                "number": 10
+            }
+        },
+        {
+            "coordinates": {
+                "x": 0,
+                "y": 80
+            },
+            "allies": 5,
+            "enemies": {
+                "type": "mech",
+                "number": 1
+            }
+        }
+    ]
 }
 ```
 
@@ -191,4 +206,4 @@ Multiple protocols can be combined to create sophisticated targeting behavior.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](#) file for details.
+N/A
